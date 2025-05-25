@@ -117,7 +117,7 @@ See the [LICENSE](LICENSE) file for full details.
 
 ## ✍️ Author
 
-Developed by **Atal Abdullah Waziri**  
+Developed by **Atal abdullah Waziri**  
 🎓 Co-founder of [Stellar Organization](https://stellarorganization.mystrikingly.com/).  
 
 ---
