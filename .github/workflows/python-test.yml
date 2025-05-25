@@ -12,8 +12,22 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
-    - run: pip install -e ".[test]"
-    - run: pytest tests/
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pytest-mock pytest-xvfb
+        
+    - name: Run tests
+      run: |
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          sudo apt-get install xvfb
+          xvfb-run python -m pytest tests/ -v
+        else
+          python -m pytest tests/ -v
+        fi
